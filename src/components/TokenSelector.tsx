@@ -1,9 +1,8 @@
 import { useState, FC } from "react";
 import { Token } from "../types/token";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
 import { cn } from "../lib/utils";
 import { IconDirectionUpDown } from "./icons/IconDirectionUpDown";
+import { Button, Input } from ".";
 
 type TokenSelectorProps = {
   tokens: Token[];

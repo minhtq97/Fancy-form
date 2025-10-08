@@ -1,6 +1,6 @@
 import React, { FC, useState, useEffect } from "react";
-import { Input } from "./ui/input";
 import { cn } from "../lib/utils";
+import { Input } from ".";
 
 type AmountInputProps = {
   value: string | undefined;

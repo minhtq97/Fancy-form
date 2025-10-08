@@ -8,7 +8,7 @@ import { AmountInput } from "./AmountInput";
 import { ErrorMessage } from "./ErrorMessage";
 import { SuccessMessage } from "./SuccessMessage";
 import { TokenSelector } from "./TokenSelector";
-import { Button } from "./ui/button";
+import { Button } from "./ui/Button";
 import { IconSwap } from "./icons";
 
 export const SwapForm: FC = () => {

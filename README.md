@@ -1,5 +1,11 @@
-## Pictures and records
+## 📸 Screenshots & Demo
 
+### Demo Video
+![App Demo](screenshots/demo.mp4)
+
+![Mobile Picture](screenshots/pic-mobile.png)
+
+![Desktop Picture](screenshots/pic-desktop.png)
 
 ## Project Structure
 
