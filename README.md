@@ -1,11 +1,18 @@
 ## 📸 Screenshots & Demo
 
 ### Demo Video
-![App Demo](screenshots/demo.mp4)
+<video width="600" controls>
+  <source src="screenshots/demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
-![Mobile Picture](screenshots/pic-mobile.png)
+### Screenshots
 
+#### Desktop View
 ![Desktop Picture](screenshots/pic-desktop.png)
+
+#### Mobile View  
+![Mobile Picture](screenshots/pic-mobile.png)
 
 ## Project Structure
 
