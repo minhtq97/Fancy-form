@@ -1,3 +1,8 @@
+./problem-2/node_modules
+./problem-2/dist
+./problem-2/build
+./problem-2/logs
+
 ./node_modules
 ./dist
 ./build
