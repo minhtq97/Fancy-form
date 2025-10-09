@@ -44,7 +44,6 @@ export const SwapForm: FC = () => {
       }
       setIsLoadingSwapForm(false);
     }
-    console.log(isLoadingSwapForm);
   }, [tokens, setValue]);
 
   const exchangeRate = watchedValues.fromToken && watchedValues.toToken
