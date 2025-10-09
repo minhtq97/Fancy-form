@@ -1,4 +1,4 @@
-import { FC, useEffect, useState, useRef, useCallback } from "react";
+import { FC, useEffect, useState, useCallback } from "react";
 import { useTokenPrices, useSwapCalculation, useSwapForm } from "@/hooks";
 import { Card, CardHeader, CardContent } from "@/components/ui/Card";
 import { ExchangeRateCard } from "@/components/ExchangeRateCard";
