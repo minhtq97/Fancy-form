@@ -16,8 +16,8 @@ export const ErrorMessage: FC<ErrorMessageProps> = ({
     <div className={cn(
       "flex items-center gap-2 text-destructive text-sm mt-1",
       className
-    )}>
-      <span className="text-red-500">{error}</span>
+    )} data-testid="error-message">
+      <span className="text-red-500" data-testid="error-text">{error}</span>
     </div>
   );
 };

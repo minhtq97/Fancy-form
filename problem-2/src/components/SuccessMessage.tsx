@@ -16,12 +16,14 @@ export const SuccessMessage: FC<SuccessMessageProps> = ({
         "flex items-center gap-2 text-green-600 bg-green-50 border border-green-200 rounded-md p-3 text-sm",
         className
       )}
+      data-testid="success-message"
     >
       <svg
         className="w-4 h-4 flex-shrink-0"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
+        data-testid="success-icon"
       >
         <path
           strokeLinecap="round"
@@ -30,7 +32,7 @@ export const SuccessMessage: FC<SuccessMessageProps> = ({
           d="M5 13l4 4L19 7"
         />
       </svg>
-      <span>{message}</span>
+      <span data-testid="success-text">{message}</span>
     </div>
   );
 };

@@ -6,12 +6,12 @@ type CardProps = {
   className?: string;
 };
 
-export const Card: FC<CardProps> = ({ children, className }) => {
+export const Card: FC<CardProps> = ({ children, className, ...props }) => {
   return (
     <div className={cn(
       'w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl mx-auto bg-white rounded-2xl shadow-lg',
       className
-    )}>
+    )} data-testid="card" {...props}>
       {children}
     </div>
   );
@@ -22,12 +22,12 @@ type CardHeaderProps = {
   className?: string;
 };
 
-export const CardHeader: FC<CardHeaderProps> = ({ children, className }) => {
+export const CardHeader: FC<CardHeaderProps> = ({ children, className, ...props }) => {
   return (
     <div className={cn(
       'bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 sm:p-6 text-center rounded-t-2xl',
       className
-    )}>
+    )} data-testid="card-header" {...props}>
       {children}
     </div>
   );
@@ -38,12 +38,12 @@ type CardContentProps = {
   className?: string;
 };
 
-export const CardContent: FC<CardContentProps> = ({ children, className }) => {
+export const CardContent: FC<CardContentProps> = ({ children, className, ...props }) => {
   return (
     <div className={cn(
       'p-4 sm:p-6 space-y-4 sm:space-y-6',
       className
-    )}>
+    )} data-testid="card-content" {...props}>
       {children}
     </div>
   );

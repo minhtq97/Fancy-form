@@ -38,11 +38,11 @@ export const ExchangeRateCard: FC<ExchangeRateCardProps> = ({
   };
 
   return (
-    <div className="bg-gray-50 rounded-lg p-3 text-center">
-      <div className="flex items-center justify-center gap-2 mb-1">
-        <span className="text-xs text-gray-600">Exchange rate</span>
+    <div className="bg-gray-50 rounded-lg p-3 text-center" data-testid="exchange-rate-card">
+      <div className="flex items-center justify-center gap-2 mb-1" data-testid="exchange-rate-header">
+        <span className="text-xs text-gray-600" data-testid="exchange-rate-label">Exchange rate</span>
         {lastUpdated && (
-          <span className="text-xs text-gray-500">
+          <span className="text-xs text-gray-500" data-testid="last-updated-text">
             ({formatLastUpdated(lastUpdated)})
           </span>
         )}
@@ -53,12 +53,13 @@ export const ExchangeRateCard: FC<ExchangeRateCardProps> = ({
             className="ml-2 p-1 rounded hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed"
             title="Refresh prices"
             type='button'
+            data-testid="refresh-prices-button"
           >
             <IconRefresh isSpinning={isRefreshing} />
           </button>
         )}
       </div>
-      <div className="text-sm font-semibold text-gray-800">
+      <div className="text-sm font-semibold text-gray-800" data-testid="exchange-rate-display">
         1 {fromToken.symbol} = {exchangeRate.toFixed(4)} {toToken.symbol}
       </div>
     </div>

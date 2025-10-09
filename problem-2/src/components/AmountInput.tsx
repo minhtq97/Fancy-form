@@ -97,6 +97,7 @@ export const AmountInput: FC<AmountInputProps> = ({
       maxLength={18}
       minLength={1}
       disabled={disabled}
+      data-testid="amount-input"
       className={cn(
         "h-10 text-lg font-medium text-gray-900 placeholder:text-gray-400 border border-gray-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200",
         disabled && "opacity-50 cursor-not-allowed",

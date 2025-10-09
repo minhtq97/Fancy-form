@@ -56,13 +56,13 @@ export const SwapForm: FC = () => {
   }
 
   return (
-    <Card>
-      <CardHeader>
-        <h1 className="text-lg sm:text-xl md:text-2xl font-semibold mb-1 sm:mb-2">Currency Swap</h1>
-        <p className="text-blue-100 text-xs sm:text-sm">Exchange your tokens at real-time rates</p>
+    <Card data-testid="swap-form-card">
+      <CardHeader data-testid="swap-form-header">
+        <h1 className="text-lg sm:text-xl md:text-2xl font-semibold mb-1 sm:mb-2" data-testid="swap-form-title">Currency Swap</h1>
+        <p className="text-blue-100 text-xs sm:text-sm" data-testid="swap-form-description">Exchange your tokens at real-time rates</p>
       </CardHeader>
 
-      <CardContent>
+      <CardContent data-testid="swap-form-content">
         {successMessage && <SuccessMessage message={successMessage} />}
 
         <ExchangeRateCard
@@ -74,7 +74,7 @@ export const SwapForm: FC = () => {
           isRefreshing={isRefreshing}
         />
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 sm:space-y-6" data-testid="swap-form">
           <TokenInputGroup
             control={control}
             errors={errors}
@@ -84,13 +84,14 @@ export const SwapForm: FC = () => {
             tokenFieldName="fromToken"
           />
 
-          <div className="flex justify-center">
+          <div className="flex justify-center" data-testid="swap-tokens-container">
             <Button
               type="button"
               variant="outline"
               size="icon"
               onClick={handleSwapTokens}
               className="rounded-full w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 border-2 border-blue-200 hover:border-blue-400 hover:bg-blue-200"
+              data-testid="swap-tokens-button"
             >
               <IconSwap/>
             </Button>
@@ -110,14 +111,15 @@ export const SwapForm: FC = () => {
             type="submit"
             className="w-full h-11 sm:h-12 text-base sm:text-lg font-medium bg-blue-500 hover:bg-blue-600 text-white rounded-lg"
             disabled={!isValid || isSubmitting}
+            data-testid="submit-swap-button"
           >
             {isSubmitting ? (
-              <div className="flex items-center gap-2">
-                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>
-                <span>Swapping...</span>
+              <div className="flex items-center gap-2" data-testid="submitting-state">
+                <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white" data-testid="submitting-spinner"></div>
+                <span data-testid="submitting-text">Swapping...</span>
               </div>
             ) : (
-              "Swap Tokens"
+              <span data-testid="submit-text">Swap Tokens</span>
             )}
           </Button>
         </form>

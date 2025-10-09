@@ -10,7 +10,8 @@ build/
 ._*
 
 */coverage/
-.coverage/
+coverage/
+
 .vscode/
 .idea/
 *.swp
