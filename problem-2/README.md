@@ -1,7 +1,7 @@
 ## 📸 Screenshots & Demo
 
 ### Demo Video
-![Watch Demo Video](https://www.loom.com/share/8528fffe13bf40e2b8be004e247a9dd0?sid=37806596-d10e-44ba-804d-d3ab20d3be65)
+[![Watch Demo Video](screenshots/pic-thumbnail.png)](https://www.loom.com/share/8528fffe13bf40e2b8be004e247a9dd0?sid=37806596-d10e-44ba-804d-d3ab20d3be65)
 
 ### Screenshots
 
