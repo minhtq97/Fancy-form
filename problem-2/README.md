@@ -2,7 +2,7 @@
 
 ### Demo Video
 <video width="600" controls>
-  <source src="screenshots/demo.mp4" type="video/mp4">
+  <source src="assets/demo.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -13,6 +13,53 @@
 
 #### Mobile View  
 ![Mobile Picture](screenshots/pic-mobile.png)
+
+## 🔄 Application Flow
+
+### User Journey
+```
+┌─────────────┐    ┌─────────────┐    ┌─────────────┐    ┌─────────────┐
+│   SELECT    │    │   ENTER     │    │   SWAP      │    │   SUBMIT    │
+│   TOKENS    │───▶│   AMOUNT    │───▶│   TOKENS    │───▶│   FORM      │
+└─────────────┘    └─────────────┘    └─────────────┘    └─────────────┘
+```
+
+### Real-time Updates
+```
+┌─────────────┐    ┌─────────────┐    ┌─────────────┐
+│30 Second    │    │API Call     │    │Update       │
+│Interval     │───▶│to API       │───▶│Prices       │
+└─────────────┘    └─────────────┘    └─────────────┘
+```
+
+## ✨ Features
+
+### 🎯 Core Functionality
+- **Real-time Token Prices**: Automatic price updates every 30 seconds
+- **Currency Swap Interface**: Intuitive form for token exchange
+- **Live Exchange Rates**: Dynamic rate calculation and display
+- **Number Formatting**: Smart comma formatting (1,000.00)
+- **Float Support**: Handles decimal amounts with precision
+
+### 🎨 User Experience
+- **Mobile-First Design**: Responsive layout for all devices
+- **Clean UI**: Modern card-based interface with blue theme
+- **Loading States**: Smooth loading indicators
+- **Error Handling**: User-friendly error messages
+- **Success Feedback**: Confirmation messages for actions
+
+### 🔧 Technical Features
+- **Hot Reload**: Instant updates during development
+- **Docker Support**: Containerized deployment
+- **TypeScript**: Full type safety
+- **Custom Hooks**: Modular logic separation
+- **Path Aliases**: Clean import structure (@/components, @/hooks, etc.)
+
+### 📱 Responsive Design
+- **iPhone 14 Optimized**: Perfect mobile experience
+- **Tablet Support**: Adaptive layout for larger screens
+- **Desktop Ready**: Full desktop functionality
+- **Fixed Width**: Consistent 552px form container
 
 ## Project Structure
 
@@ -64,4 +111,47 @@ fancy-form/
    ```bash
    npm run preview
    ```
+
+### 🧪 Testing
+
+1. **Run all tests:**
+   ```bash
+   npm test
+   ```
+
+2. **Run tests in watch mode:**
+   ```bash
+   npm run test:watch
+   ```
+
+3. **Run tests with coverage:**
+   ```bash
+   npm run test:coverage
+   ```
+
+**📊 Current Test Coverage**: 14.69% (22 tests passing)
+
+### 🐳 Docker Development
+
+1. **Build and run with Docker:**
+   ```bash
+   docker-compose up --build
+   ```
+
+2. **Run in background:**
+   ```bash
+   docker-compose up -d
+   ```
+
+3. **Stop containers:**
+   ```bash
+   docker-compose down
+   ```
+
+4. **View logs:**
+   ```bash
+   docker-compose logs app
+   ```
+
+**🌐 Access the app**: http://localhost:3000
 

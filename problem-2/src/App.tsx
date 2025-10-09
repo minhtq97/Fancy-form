@@ -1,4 +1,4 @@
-import { SwapForm } from './components/SwapForm'
+import { SwapForm } from "@/components/SwapForm";
 
 function App() {
   return (

@@ -17,5 +17,10 @@ export default defineConfig({
         secure: true,
       }
     }
-  }
+  },
+  resolve: {
+    alias: {
+      '@': '/src',
+    },
+  },
 })

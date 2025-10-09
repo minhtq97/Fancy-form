@@ -1,5 +1,5 @@
-import { Token, PriceData } from "../types/token";
-import { apiMethod } from "./apiMethod";
+import { Token, PriceData } from "@/types/token";
+import { apiMethod } from "@/services/apiMethod";
 
 const TOKEN_ICON_BASE_URL =
   "https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens";

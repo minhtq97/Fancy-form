@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { MAX_AMOUNT_LENGTH } from '../constants';
 
 export const swapFormSchema = z.object({
   fromToken: z.object({
@@ -21,7 +22,7 @@ export const swapFormSchema = z.object({
     .min(1, "Amount is required")
     .refine((val) => {
       const num = parseFloat(val.replace(/,/g, ''));
-      return !isNaN(num) && num > 0 && val.length <= 15;
+      return !isNaN(num) && num > 0 && val.length <= MAX_AMOUNT_LENGTH;
     }, {
       message: "Please enter a valid amount"
     }),

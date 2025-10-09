@@ -1,6 +1,7 @@
-import React, { FC, useState, useEffect } from "react";
-import { cn } from "../lib/utils";
-import { Input } from ".";
+import { ChangeEvent, FC, useEffect, useState } from "react";
+import { Input } from "@/components/ui/Input";
+import { MAX_AMOUNT_LENGTH, REGEX_AMOUNT } from "@/constants";
+import { cn } from "@/lib/utils";
 
 type AmountInputProps = {
   value: string | undefined;
@@ -23,13 +24,13 @@ export const AmountInput: FC<AmountInputProps> = ({
     if (!num || num === "") return "";
 
     const cleanNum = num.replace(/,/g, "");
-    
+
     const parsed = parseFloat(cleanNum);
     if (isNaN(parsed)) return "";
 
     return parsed.toLocaleString("en-US", {
       minimumFractionDigits: 0,
-      maximumFractionDigits: 6
+      maximumFractionDigits: 6,
     });
   };
 
@@ -46,7 +47,7 @@ export const AmountInput: FC<AmountInputProps> = ({
     }
   }, [value]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
 
     if (inputValue === "") {
@@ -55,19 +56,19 @@ export const AmountInput: FC<AmountInputProps> = ({
       return;
     }
 
-    const regex = /^[\d,]*\.?\d*$/;
+    const regex = REGEX_AMOUNT;
     if (regex.test(inputValue)) {
       const rawValue = parseNumber(inputValue);
-      
+
       if (inputValue.includes(".") && inputValue.endsWith(".")) {
         setDisplayValue(inputValue);
         onChange(rawValue);
         return;
       }
-      
+
       const parsed = parseFloat(rawValue);
       if (!isNaN(parsed) && parsed >= 0) {
-        const maxLength = 15;
+        const maxLength = MAX_AMOUNT_LENGTH;
         if (rawValue.length <= maxLength) {
           setDisplayValue(inputValue);
           onChange(rawValue);

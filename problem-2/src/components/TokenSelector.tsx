@@ -1,8 +1,8 @@
-import { useState, FC } from "react";
-import { Token } from "../types/token";
-import { cn } from "../lib/utils";
-import { IconDirectionUpDown } from "./icons/IconDirectionUpDown";
-import { Button, Input } from ".";
+import { useState, FC, useCallback } from "react";
+import { Token } from "@/types/token";
+import { cn } from "@/lib/utils";
+import { IconDirectionUpDown } from "@/components/icons/IconDirectionUpDown";
+import { Button, Input } from "@/components/ui";
 
 type TokenSelectorProps = {
   tokens: Token[];
@@ -21,6 +21,7 @@ export const TokenSelector: FC<TokenSelectorProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
 
   const filteredTokens = tokens.filter(
     (token) =>
@@ -34,6 +35,19 @@ export const TokenSelector: FC<TokenSelectorProps> = ({
     setSearchTerm("");
   };
 
+  const handleImageError = useCallback((symbol: string, size: number = 24) => {
+    if (!failedImages.has(symbol)) {
+      setFailedImages(prev => new Set(prev).add(symbol));
+    }
+  }, [failedImages]);
+
+  const getImageSrc = useCallback((token: Token, size: number = 24) => {
+    if (failedImages.has(token.symbol)) {
+      return `https://via.placeholder.com/${size}x${size}/6366f1/ffffff?text=${token.symbol.charAt(0)}`;
+    }
+    return token.icon;
+  }, [failedImages]);
+
   return (
     <div className={cn("relative", className)}>
       <Button
@@ -46,15 +60,10 @@ export const TokenSelector: FC<TokenSelectorProps> = ({
           {selectedToken ? (
             <>
               <img
-                src={selectedToken.icon}
+                src={getImageSrc(selectedToken, 20)}
                 alt={selectedToken.symbol}
                 className="w-5 h-5 rounded-full"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement;
-                  target.src = `https://via.placeholder.com/20x20/6366f1/ffffff?text=${selectedToken.symbol.charAt(
-                    0
-                  )}`;
-                }}
+                onError={() => handleImageError(selectedToken.symbol, 20)}
               />
               <span className="text-sm font-medium text-gray-700">
                 {selectedToken.symbol}
@@ -88,15 +97,10 @@ export const TokenSelector: FC<TokenSelectorProps> = ({
                   type="button"
                 >
                   <img
-                    src={token.icon}
+                    src={getImageSrc(token, 24)}
                     alt={token.symbol}
                     className="w-6 h-6 rounded-full"
-                    onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      target.src = `https://via.placeholder.com/24x24/6366f1/ffffff?text=${token.symbol.charAt(
-                        0
-                      )}`;
-                    }}
+                    onError={() => handleImageError(token.symbol, 24)}
                   />
                   <div className="flex-1">
                     <div className="text-sm font-medium text-gray-900">
